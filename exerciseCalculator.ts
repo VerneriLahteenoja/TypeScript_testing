@@ -58,5 +58,6 @@ const calculateExercises = (hours: number[], target: number): CalcResultObject =
     avarage: avarageHoursTrained
   }
 }
-
+//Get inputs from command line
+//Either create a module to verify inputs or add logic to main function
 console.log(calculateExercises([1,2,2], 2))
