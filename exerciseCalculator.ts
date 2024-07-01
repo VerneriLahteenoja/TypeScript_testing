@@ -15,16 +15,6 @@ interface Rating {
 }
 
 const calculateExercises = (hours: number[], target: number): CalcResultObject => {
-  /*
-  Return:
-    number of days 
-    number of training days
-    original target
-    calculated avarage
-    boolean if target reached
-    rating value (number)
-    rating how well done (number)
-  */
   const days = hours.length
   const trainingDays = hours.filter(hour => hour > 0)
   // Amount of training hours within given timeframe

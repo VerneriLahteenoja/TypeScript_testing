@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "ts-node": "ts-node",
     "bmiCalculate": "ts-node bmiCalculate.ts",
-    "exerciseCalculator": "ts-node exerciseCalculator.ts"
+    "exerciseCalculator": "ts-node exerciseCalculator.ts",
+    "test-args": "ts-node parseArguments.ts"
   },
   "repository": {
     "type": "git",
