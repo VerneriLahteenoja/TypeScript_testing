@@ -1,3 +1,5 @@
+import { parseArguments } from "./parseArguments"
+
 
 interface CalcResultObject {
   periodLength: number,

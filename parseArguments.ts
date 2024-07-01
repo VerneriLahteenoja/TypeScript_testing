@@ -3,7 +3,7 @@ interface ExerciseArguments {
   hours: number[]
 }
 
-const parseArguments = (args: string[]): ExerciseArguments => {
+export const parseArguments = (args: string[]): ExerciseArguments => {
   // Check if there's enough arguments
   // args[2] is expected to be target value
   // args[3] onwards are expected to be days where arg[x] value is amout of hours
