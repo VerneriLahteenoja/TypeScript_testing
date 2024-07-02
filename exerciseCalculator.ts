@@ -17,6 +17,7 @@ interface Rating {
 }
 
 const calculateExercises = (): CalcResultObject => {
+  // Command line arguments
   const {hours, target} = parseArguments(process.argv)
   const days = hours.length
   const trainingDays = hours.filter(hour => hour > 0)
@@ -51,6 +52,5 @@ const calculateExercises = (): CalcResultObject => {
     avarage: avarageHoursTrained
   }
 }
-//Get inputs from command line
-//Either create a module to verify inputs or add logic to main function
+
 console.log(calculateExercises())
