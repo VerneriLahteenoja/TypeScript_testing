@@ -16,7 +16,8 @@ interface Rating {
   ratingDescription: string
 }
 
-const calculateExercises = (hours: number[], target: number): CalcResultObject => {
+const calculateExercises = (): CalcResultObject => {
+  const {hours, target} = parseArguments(process.argv)
   const days = hours.length
   const trainingDays = hours.filter(hour => hour > 0)
   // Amount of training hours within given timeframe
@@ -52,4 +53,4 @@ const calculateExercises = (hours: number[], target: number): CalcResultObject =
 }
 //Get inputs from command line
 //Either create a module to verify inputs or add logic to main function
-console.log(calculateExercises([1,2,2], 2))
+console.log(calculateExercises())

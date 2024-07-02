@@ -22,4 +22,4 @@ export const parseArguments = (args: string[]): ExerciseArguments => {
   };
 };
 
-parseArguments(process.argv)
+//parseArguments(process.argv)
