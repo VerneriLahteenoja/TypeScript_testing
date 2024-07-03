@@ -1,5 +1,7 @@
+import { parseBmiArguments } from "./parseArguments"
 
-const calculateBmi = (height: number, weight: number) => {
+const calculateBmi = (args: string[]) => {
+    const {height, weight} = parseBmiArguments(args)
     const bmi = weight / (height * 2) * 100
     if (bmi >= 40) {
         console.log("Obese (Class 3)")
@@ -22,4 +24,4 @@ const calculateBmi = (height: number, weight: number) => {
     }
 }
 
-calculateBmi(175, 80)
+calculateBmi(process.argv)
