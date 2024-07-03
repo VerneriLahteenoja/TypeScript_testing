@@ -16,9 +16,9 @@ interface Rating {
   ratingDescription: string
 }
 
-const calculateExercises = (): CalcResultObject => {
+const calculateExercises = (args: string[]): CalcResultObject => {
   // Command line arguments
-  const {hours, target} = parseArguments(process.argv)
+  const {hours, target} = parseArguments(args)
   const days = hours.length
   const trainingDays = hours.filter(hour => hour > 0)
   // Amount of training hours within given timeframe
@@ -53,4 +53,4 @@ const calculateExercises = (): CalcResultObject => {
   }
 }
 
-console.log(calculateExercises())
+console.log(calculateExercises(process.argv))
