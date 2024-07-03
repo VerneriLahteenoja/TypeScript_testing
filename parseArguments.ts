@@ -22,4 +22,25 @@ export const parseArguments = (args: string[]): ExerciseArguments => {
   };
 };
 
+interface BmiArguments {
+  height: number,
+  weight: number
+}
+
+export const parseBmiArguments = (args: string[]): BmiArguments => {
+  if (args.length < 4) throw new Error('Not enough arguments, expected: height weight');
+  if (args.length > 4) throw new Error('Too many arguments, expected: height weight')
+  const height: number = Number(args[2]);
+  const weight: number = Number(args[3]);
+  
+  if (!isNaN(height) && !isNaN(weight)) {
+    return {
+      height,
+      weight
+    };
+  } else {
+    throw new Error('Expected all arguments to be of type: number. Got NaN instead');
+  };
+}
+
 //parseArguments(process.argv)
