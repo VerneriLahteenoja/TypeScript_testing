@@ -1,6 +1,6 @@
 import { parseBmiArguments } from "./parseArguments"
 
-const calculateBmi = (args: string[]): string => {
+export const calculateBmi = (args: string[]): string => {
   const {height, weight} = parseBmiArguments(args)
   const bmi = weight / (height * 2) * 100
   if (bmi >= 40) {
@@ -24,4 +24,4 @@ const calculateBmi = (args: string[]): string => {
   }
 }
 
-console.log(calculateBmi(process.argv))
+//console.log(calculateBmi(process.argv))
