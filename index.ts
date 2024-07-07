@@ -9,7 +9,7 @@ app.get('/hello', (_req, res) => {
 });
 
 app.get('/bmi', (req, res) => {
-  var params = qs.parse(req.query as any)
+  const params = qs.parse(req.query as any)
   if (!params.height || !params.weight || Object.keys(params).length !== 2) {
     return res.status(400).json({ error: 'Malformatted parameters. Expected height=<number>&weight=<number>'})
   }

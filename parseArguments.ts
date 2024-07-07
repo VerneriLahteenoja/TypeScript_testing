@@ -19,7 +19,7 @@ export const parseArguments = (args: string[]): ExerciseArguments => {
     };
   } else {
     throw new Error('Expected all arguments to be of type: number. Got NaN instead');
-  };
+  }
 };
 
 interface BmiArguments {
@@ -40,7 +40,7 @@ export const parseBmiArguments = (args: string[]): BmiArguments => {
     };
   } else {
     throw new Error('Expected all arguments to be of type: number. Got NaN instead');
-  };
+  }
 }
 
 //parseArguments(process.argv)
