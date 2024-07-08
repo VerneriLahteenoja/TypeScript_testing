@@ -16,7 +16,7 @@ interface Rating {
   ratingDescription: string
 }
 
-const calculateExercises = (args: string[]): CalcResultObject => {
+export const calculateExercises = (args: string[]): CalcResultObject => {
   // Command line arguments
   const {hours, target} = parseArguments(args);
   const days = hours.length;
