@@ -1,8 +1,10 @@
 import express from 'express';
 import qs from 'qs';
 import { calculateBmi } from './bmiCalculate';
+import { calculateExercises } from './exerciseCalculator';
 
 const app = express();
+app.use(express.json());
 
 app.get('/hello', (_req, res) => {
   res.send('Hello Full Stack!');
@@ -24,14 +26,21 @@ app.get('/bmi', (req, res) => {
 });
 
 app.post('/exercises', (req, res) => {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const params = qs.parse(req.query as any);
-  const hours = params.hours as string;
-  const target = params.target as string;
   //TODO: Add logic for exerciseCalculator here
-  console.log([ hours, target ]);
+  if (!req.body) {
+    return res.status(400).json({ error: "missing parameters" });
+  }
+  if (!req.body.daily_exercises || !req.body.target) {
+    return res.status(400).json({ error: "missing parameters, expected <daily_exercises> and <target>" });
+  }
 
-  return res.send("To be added");
+  const daily_exercises: number[] = req.body.daily_exercises.map((day: number) => Number(day)); // Make sure each element is or can be casted to Number
+  const target: number = Number(req.body.target);
+  console.log( daily_exercises, target);
+
+  const result = calculateExercises( daily_exercises, target );
+
+  return res.send(result);
 });
 
 
