@@ -29,7 +29,7 @@ interface BmiArguments {
 
 export const parseBmiArguments = (args: string[]): BmiArguments => {
   if (args.length < 2) throw new Error(`Not enough arguments, expected: height weight, got ${args}`);
-  if (args.length > 2) throw new Error('Too many arguments, expected: height weight')
+  if (args.length > 2) throw new Error('Too many arguments, expected: height weight');
   const height: number = Number(args[0]);
   const weight: number = Number(args[1]);
   
@@ -41,6 +41,6 @@ export const parseBmiArguments = (args: string[]): BmiArguments => {
   } else {
     throw new Error('Expected all arguments to be of type: number. Got NaN instead');
   }
-}
+};
 
 //parseArguments(process.argv)
