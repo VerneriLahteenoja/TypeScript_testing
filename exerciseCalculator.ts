@@ -1,4 +1,4 @@
-import { parseArguments } from "./parseArguments";
+//import { parseArguments } from "./parseArguments";
 
 
 interface CalcResultObject {
@@ -16,11 +16,13 @@ interface Rating {
   ratingDescription: string
 }
 
-export const calculateExercises = (args: string[]): CalcResultObject => {
+export const calculateExercises = (daily_exercises: number[], target: number): CalcResultObject => {
   // Command line arguments
-  const {hours, target} = parseArguments(args);
-  const days = hours.length;
-  const trainingDays = hours.filter(hour => hour > 0);
+  //const {hours, target} = parseArguments(args);
+  //TODO: Can refactor parser to work properly with this function later
+
+  const days = daily_exercises.length;
+  const trainingDays = daily_exercises.filter(hour => hour > 0);
   // Amount of training hours within given timeframe
   const trainingDaysSum = trainingDays.reduce((acc, hours) => {
     return acc + hours;
@@ -53,4 +55,4 @@ export const calculateExercises = (args: string[]): CalcResultObject => {
   };
 };
 
-console.log(calculateExercises(process.argv));
+//console.log(calculateExercises(process.argv));
