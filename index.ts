@@ -26,16 +26,30 @@ app.get('/bmi', (req, res) => {
 });
 
 app.post('/exercises', (req, res) => {
-  //TODO: Add logic for exerciseCalculator here
   if (!req.body) {
     return res.status(400).json({ error: "missing parameters" });
   }
   if (!req.body.daily_exercises || !req.body.target) {
     return res.status(400).json({ error: "missing parameters, expected <daily_exercises> and <target>" });
   }
+  if (isNaN(Number(req.body.target))) {
+    return res.status(400).json({
+      error: "parameter <target> given as NaN, expected a number or value that can be cast as number"
+      });
+  }
+  // There's probably a cleaner way
+  for (let i=0; i < req.body.daily_exercises.length; i++) {
+    if (isNaN(req.body.daily_exercises[i])) {
+      return res.status(400).json({
+        error: "parameter <daily_exercises> given as NaN, expected a number or value that can be cast as number"
+      });
+    }
+  };
 
-  const daily_exercises: number[] = req.body.daily_exercises.map((day: number) => Number(day)); // Make sure each element is or can be casted to Number
+  // Make sure each element is or can be casted to Number
+  const daily_exercises: number[] = req.body.daily_exercises.map((day: number) => Number(day)); 
   const target: number = Number(req.body.target);
+  
   console.log( daily_exercises, target);
 
   const result = calculateExercises( daily_exercises, target );
